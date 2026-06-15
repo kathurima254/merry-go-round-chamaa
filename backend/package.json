@@ -1,53 +1,26 @@
 {
-  "name": "chamaa-backend",
+  "name": "chamaa-api",
   "version": "1.0.0",
-  "description": "Merry Go Round Chamaa - Scalable Community Savings Platform",
-  "main": "src/index.ts",
+  "description": "Merry Go Round Chamaa API",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "tsc",
-    "migrate": "npm run build && node dist/migrations/index.js",
+    "migrate": "npm run build && node dist/database/migrations.js",
     "seed": "npm run build && node dist/seeds/index.js",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
-    "format": "prettier --write \"src/**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\"",
+    "typecheck": "tsc --noEmit",
+    "analyze": "npm run build && node --prof dist/index.js"
   },
-  "dependencies": {
-    "express": "^4.18.2",
-    "typescript": "^5.0.0",
-    "pg": "^8.11.0",
-    "redis": "^4.6.0",
-    "jsonwebtoken": "^9.0.2",
-    "bcryptjs": "^2.4.3",
-    "dotenv": "^16.3.1",
-    "joi": "^17.11.0",
-    "helmet": "^7.1.0",
-    "express-rate-limit": "^7.1.5",
-    "cors": "^2.8.5",
-    "axios": "^1.6.2",
-    "winston": "^3.11.0",
-    "uuid": "^9.0.1",
-    "socket.io": "^4.7.2",
-    "node-cache": "^5.1.2",
-    "express-async-errors": "^3.1.1",
-    "compression": "^1.7.4",
-    "nodemailer": "^6.9.7",
-    "speakeasy": "^2.0.0",
-    "qrcode": "^1.5.3"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/node": "^20.10.0",
-    "@types/jest": "^29.5.8",
-    "ts-node-dev": "^2.0.0",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.1.1",
-    "eslint": "^8.54.0",
-    "@typescript-eslint/eslint-plugin": "^6.13.2",
-    "@typescript-eslint/parser": "^6.13.2",
-    "prettier": "^3.1.1"
+  "keywords": ["savings", "chamaa", "community", "fintech"],
+  "author": "Merry Go Round",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }
